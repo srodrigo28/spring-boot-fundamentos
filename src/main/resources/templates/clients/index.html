@@ -21,7 +21,11 @@
             <li><strong>TWProjects</strong></li>
         </ul>
         <ul>
-            <li><a href="#">Clientes</a></li>
+            <li>
+                <a href="http://localhost:8080/clients/create">
+                    <button>New</button>
+                </a>
+            </li>
         </ul>
     </nav>
     <main class="container">
@@ -34,19 +38,26 @@
                     <th scope="col">Nome</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Telefone</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="item : ${clients}">
-                    <td scope="row" th:text="*{item.id}"></td>
-                    <td scope="row" th:text="*{item.name}"></td>
-                    <td scope="row" th:text="*{item.email}"></td>
-                    <td scope="row" th:text="*{item.phone}"></td>
+                    <td scope="row" th:text="*{item.id}"> </td>
+                    <td scope="row" th:text="*{item.name}"> </td>
+                    <td scope="row" th:text="*{item.email}"> </td>
+                    <td scope="row" th:text="*{item.phone}"> </td>
+                    <td>
+                        
+                    <a th:href="@{'/clients/edit/' + ${item.id}}">Editar</a>
+                    <a th:href="@{'/clients/delete/' + ${item.id}}">Apagar</a>
+                        
+                    </td>
                 </tr>
             </tbody>
         </table>
 
-        <a href="#" role="button">Novo Cliente</a>
+        <a href="http://localhost:8080/clients/create" role="button">Novo Cliente</a>
     </main>
 </body>
 </html>
