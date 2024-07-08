@@ -1,4 +1,4 @@
-package com.example.restexemplo.core.web.dtos;
+package com.example.restexemplo.web.dtos.Client;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

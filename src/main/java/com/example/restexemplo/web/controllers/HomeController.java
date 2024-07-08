@@ -1,4 +1,4 @@
-package com.example.restexemplo.core.web.controllers;
+package com.example.restexemplo.web.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

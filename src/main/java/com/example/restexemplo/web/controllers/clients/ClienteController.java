@@ -1,4 +1,4 @@
-package com.example.restexemplo.core.web.controllers.clients;
+package com.example.restexemplo.web.controllers.clients;
 
 // import java.util.ArrayList;
 // import com.example.restexemplo.core.models.Client;
@@ -9,10 +9,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.restexemplo.core.repository.ClientRepository;
-import com.example.restexemplo.core.web.dtos.ClientViewModel;
+import com.example.restexemplo.web.dtos.Client.ClientForm;
+import com.example.restexemplo.web.dtos.Client.ClientViewModel;
 
 @Controller
 @RequiredArgsConstructor
@@ -21,7 +23,7 @@ public class ClienteController {
     
     private final ClientRepository clientRepository;
 
-    @GetMapping
+    @GetMapping // Listar(View)
     public ModelAndView index(){
     /*** Opção 2  */
         var clients = clientRepository.findAll()
@@ -31,6 +33,19 @@ public class ClienteController {
     
         var model = Map.of("clients", clients);
         return new ModelAndView("clients/index", model);
+    }
+
+    @GetMapping("/create") // Rota Cadastro(View) Web
+    public ModelAndView create(){
+        var model = Map.of("clientForm", new ClientForm());
+        return new ModelAndView("clients/create", model);
+    }
+
+    @PostMapping("/create") // Rota Cadastro Cadastro(Function)
+    public String create(ClientForm clientForm){
+        var client = clientForm.toClient();
+        clientRepository.save(client);
+        return "redirect:/clients";
     }
 }
 
