@@ -1,4 +1,4 @@
-package com.example.restexemplo.models;
+package com.example.restexemplo.core.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "clients")
 public class Client {
 
     @Id
@@ -16,62 +16,48 @@ public class Client {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String nome;
+    private String name;
 
     @Column(nullable = false)
-    private String sexo;
+    private String phone;
     
     @Column(nullable = false)
-    private int age;
+    private String email;
 
-    public Client(String string, int i) {
+    public Client() {
     }
 
-    public Client(String nome, String sexo, int age) {
-        this.nome = nome;
-        this.sexo = sexo;
-        this.age = age;
+    public Client(String name, String phone, String email) {
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
     }
 
-    public Client(Long id, String nome, String sexo, int age) {
+    public Client(Long id, String name, String phone, String email) {
         this.id = id;
-        this.nome = nome;
-        this.sexo = sexo;
-        this.age = age;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
     }
 
     @Override
     public String toString() {
-        return "Cliente: nome=" + nome + ", sexo=" + sexo + ", idade=" + age + " ";
+        return "Cliente: name=" + name + ", phone=" + phone + ", idade=" + email + " ";
     }
 
     public Long getId() {
         return id;
     }
     
-    public String getNome() {
-        return nome;
-    }
-    public String getSexo() {
-        return sexo;
-    }
-    public int getAge() {
-        return age;
-    }
+    public String getName()  { return name;  }
+    public String getPhone() { return phone; }
+    public String getEmail() { return email; }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
+    public void setName(String name)   { this.name = name; }
+    public void setPhone(String phone) { this.phone = phone; }
+    public void setEmail(String email) { this.email = email; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
     @Override
     public int hashCode() {

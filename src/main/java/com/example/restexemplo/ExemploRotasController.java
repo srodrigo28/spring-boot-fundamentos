@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.restexemplo.models.Client;
+import com.example.restexemplo.core.models.Client;
 
 @Controller
 public class ExemploRotasController {
@@ -45,7 +45,7 @@ public class ExemploRotasController {
     // Carregando valores nos campos inputs
     @GetMapping("/teste4")
     public String action4(Model model){
-        model.addAttribute("client", new Client("Sebastião M ", "m", 27));
+        model.addAttribute("client", new Client("Sebastião M ", "m", "27"));
         return "formTeste";
     }
 

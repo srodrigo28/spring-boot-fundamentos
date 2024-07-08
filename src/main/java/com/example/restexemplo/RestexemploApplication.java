@@ -1,14 +1,19 @@
 package com.example.restexemplo;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.restexemplo.models.Client;
-import com.example.restexemplo.repository.ClientRepository;
-
 @SpringBootApplication
+public class RestexemploApplication  {
+
+	// inserindo valores iniciais
+	public static void main(String[] args) {
+		SpringApplication.run(RestexemploApplication.class, args);
+
+		System.out.println(" \n \n  Starting ... is server \n \n");
+	}
+}
+/***
 public class RestexemploApplication implements CommandLineRunner {
 
 	@Autowired
@@ -31,8 +36,8 @@ public class RestexemploApplication implements CommandLineRunner {
 		clientRepository.save(client1);
 
 		var client2 = new Client("alisson siqueira", "m", 38);
-		clientRepository.save(client2);
-		
+		clientRepository.save(client2);	
 	}
-
 }
+
+ */
