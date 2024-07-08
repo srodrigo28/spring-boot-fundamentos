@@ -3,12 +3,14 @@ package com.example.restexemplo.web.controllers.clients;
 // import java.util.ArrayList;
 // import com.example.restexemplo.core.models.Client;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -47,5 +49,27 @@ public class ClienteController {
         clientRepository.save(client);
         return "redirect:/clients";
     }
+
+    @GetMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable Long id){
+        var client = clientRepository.findById(id); 
+       if(!client.isPresent()){
+            throw new NoSuchElementException("Cliente não encontrado");
+       }
+       var model = Map.of("clientForm", ClientForm.of(client.get()));
+       return new ModelAndView("clients/edit", model);
+    }
+
+    @PostMapping("/edit/{id}") // Rota Cadastro Cadastro(Function)
+    public String edit(@PathVariable Long id, ClientForm clientForm){
+        if(!clientRepository.existsById(id)){
+            throw new NoSuchElementException("Cliente não encontrado");
+        }
+        var client = clientForm.toClient();
+        client.setId(id);
+        clientRepository.save(client);
+        return "redirect:/clients";
+    }
+
 }
 

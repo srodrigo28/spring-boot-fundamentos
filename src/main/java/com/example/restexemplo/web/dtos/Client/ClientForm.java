@@ -1,6 +1,7 @@
 package com.example.restexemplo.web.dtos.Client;
 
 import com.example.restexemplo.core.models.Client;
+import com.example.restexemplo.core.utils.StringUtils;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,7 +26,16 @@ public class ClientForm {
         return Client.builder()
             .name(name)
             .email(email)
-            .phone(cleanedPhone())
+            .phone(StringUtils.cleanPhone(phone))
             .build();
+    }
+
+    // Erro aqui
+    public static ClientForm of(Client client){
+        return ClientForm.builder()
+           .name(client.getName())
+           .email(client.getEmail())
+           .phone(StringUtils.FormatPhone(client.getPhone()))
+           .build();
     }
 }

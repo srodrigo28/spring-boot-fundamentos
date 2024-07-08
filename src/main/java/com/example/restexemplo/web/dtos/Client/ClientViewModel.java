@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import com.example.restexemplo.core.models.Client;
+import com.example.restexemplo.core.utils.StringUtils;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,7 @@ public class ClientViewModel {
 
     public String getPhone(){
         // return phone.replaceAll("(\\d{2})(\\d{5})(\\d{4})", "($1) $2-$3");
-        return phone.replaceAll("(\\d{2})(\\d{1})(\\d{4})(\\d{4})", "($1) $2 $3-$4");
+        return StringUtils.FormatPhone(phone);
     }
 
     public static ClientViewModel of(Client client){
