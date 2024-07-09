@@ -2,6 +2,7 @@ package com.example.restexemplo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @SpringBootApplication
 public class RestexemploApplication  {
@@ -11,6 +12,11 @@ public class RestexemploApplication  {
 		SpringApplication.run(RestexemploApplication.class, args);
 
 		System.out.println(" \n \n  Starting ... is server \n \n");
+	}
+
+	@GetMapping("/")
+	public String Home(){
+		return "clients/index";
 	}
 }
 /***

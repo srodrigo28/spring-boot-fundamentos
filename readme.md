@@ -28,6 +28,12 @@ http://localhost:8080/h2-console/
 jdbc:h2:mem:testdb
 ```
 
+#### CDNS
+* Icons
+```
+https://icons.getbootstrap.com/
+```
+
 #### Mysl properties
 * src/main/resources application.properties
 
