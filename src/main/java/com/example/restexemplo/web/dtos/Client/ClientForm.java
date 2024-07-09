@@ -30,7 +30,6 @@ public class ClientForm {
             .build();
     }
 
-    // Erro aqui
     public static ClientForm of(Client client){
         return ClientForm.builder()
            .name(client.getName())
