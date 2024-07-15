@@ -24,7 +24,7 @@ public class Clientes {
     private Long id;
 
     @ToString.Include
-    @Column( unique = true, nullable = false, length = 50)
+    @Column( unique = true, nullable = false, length = 70)
     private String name;
 
     @ToString.Include

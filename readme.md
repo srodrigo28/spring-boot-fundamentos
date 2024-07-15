@@ -241,5 +241,6 @@ public class ClientViewModel {
 ```
 
 #### Modelo Record
+* testando Lombok vs Nativo
 
 
