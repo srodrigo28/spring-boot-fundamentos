@@ -48,15 +48,27 @@
                 />
             </label>
             <!-- pattern="^\(\d{2}\) \d{1} \d{4}-\d{4}$" -->
-            <div class="d-flex">
+            <div class="grup-btn">
                 <button type="submit">Cadastrar</button>
-            
-                <a href="http://localhost:8080/clients" role="button">
-                Cancelar 
+                <a href="/">
+                    <button class="btn-cancelar">
+                            Cancelar 
+                    </button>
                 </a>
             </div>
 
-            
+            <style>
+                .grup-btn{
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .btn-cancelar{
+                    border: none;
+                    background-color: red;
+                    outline: none;
+                    text-decoration: none;
+                }
+            </style>
         </form>
     </main>
 

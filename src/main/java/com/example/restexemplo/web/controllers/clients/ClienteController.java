@@ -21,7 +21,7 @@ import com.example.restexemplo.web.dtos.Client.ClientViewModel;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/clients")
+@RequestMapping("/")
 public class ClienteController {
     
     private final ClientRepository clientRepository;
